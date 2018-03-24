@@ -17,5 +17,6 @@ public interface Metadata {
 
     public InputStream getDataAsInputStream();
 
+    public String toUriSource();
     public String toUriData();
 }

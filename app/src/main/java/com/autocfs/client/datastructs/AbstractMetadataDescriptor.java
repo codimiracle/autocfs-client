@@ -8,6 +8,6 @@ public abstract class AbstractMetadataDescriptor implements MetadataDescriptor {
 
     @Override
     public String toUri() {
-        return PROTOCOL + ":" + getMetadataType() + ":" + getMetadata().toUriData();
+        return PROTOCOL + "://" + getMetadataType() + ":" + getMetadata().toUriSource() + ":" + getMetadata().toUriData();
     }
 }

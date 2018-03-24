@@ -6,9 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 
-/**
- * Created by Codimiracle on 2018/3/23.
- */
+import static com.google.common.base.Preconditions.checkNotNull;
 
 public abstract class AbstractMetadata implements Metadata {
 
@@ -19,13 +17,13 @@ public abstract class AbstractMetadata implements Metadata {
 
     public AbstractMetadata(String source, String data) {
         this(new ByteArrayInputStream(source.getBytes()), new ByteArrayInputStream(data.getBytes()));
-        this.sourceAsString = source;
-        this.dataAsString = data;
+        this.sourceAsString = checkNotNull(source);
+        this.dataAsString = checkNotNull(data);
     }
 
     public AbstractMetadata(InputStream source, InputStream data) {
-        this.sourceAsStream = source;
-        this.dataAsStream = data;
+        this.sourceAsStream = checkNotNull(source);
+        this.dataAsStream = checkNotNull(data);
     }
 
     private String parseString(InputStream stream, Charset charset) throws IOException {
@@ -104,6 +102,11 @@ public abstract class AbstractMetadata implements Metadata {
     @Override
     public InputStream getDataAsInputStream() {
         return dataAsStream;
+    }
+
+    @Override
+    public String toUriSource() {
+        return getSourceAsString();
     }
 
     @Override

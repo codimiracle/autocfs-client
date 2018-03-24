@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.autocfs.client.contracts.AutocfsContract;
 import com.autocfs.client.contracts.AutocfsFragment;
 import com.autocfs.client.contracts.AutocfsPresenter;
+import com.autocfs.client.utils.AndroidUtils;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -33,14 +34,13 @@ public class MainActivity extends AppCompatActivity
         view = new AutocfsFragment();
         presenter = new AutocfsPresenter(view);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.view_container, view).commit();
+        AndroidUtils.replaceFragment(getSupportFragmentManager(), R.id.view_container, view);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
             }
         });
 
