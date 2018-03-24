@@ -6,6 +6,10 @@ package com.autocfs.client.datastructs;
 
 public class AutocfsConvention extends AbstractConvention {
 
+    public AutocfsConvention(MetadataDescriptor descriptor) {
+        super(descriptor);
+    }
+
     public AutocfsConvention(MetadataDescriptor descriptor, ConventionHandler handler) {
         super(descriptor, handler);
     }

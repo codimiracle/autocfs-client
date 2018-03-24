@@ -7,9 +7,13 @@ public class AbstractConvention implements Convention {
     private MetadataDescriptor descriptor;
     private ConventionHandler handler;
 
+    public AbstractConvention(MetadataDescriptor descriptor) {
+        this(descriptor, null);
+    }
+
     public AbstractConvention(MetadataDescriptor descriptor, ConventionHandler handler) {
         this.descriptor = checkNotNull(descriptor);
-        this.handler = checkNotNull(handler);
+        this.handler = handler;
     }
 
     @Override
