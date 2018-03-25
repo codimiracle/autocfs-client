@@ -1,10 +1,7 @@
-package com.autocfs.client.datastructs;
+package com.autocfs.core;
 
 import net.sf.jmimemagic.Magic;
-import net.sf.jmimemagic.MagicException;
 import net.sf.jmimemagic.MagicMatch;
-import net.sf.jmimemagic.MagicMatchNotFoundException;
-import net.sf.jmimemagic.MagicParseException;
 
 import java.io.File;
 import java.io.InputStream;
@@ -25,6 +22,9 @@ public class AutocfsMetadataDescriptorFactory implements MetadataDescriptorFacto
         return new AutocfsMetadataDescriptor(type.toLowerCase(), metadata);
     }
 
+    public MetadataDescriptor getDescriptor(String pathname) {
+        return getDescriptor(new File(pathname));
+    }
     @Override
     public MetadataDescriptor getDescriptor(File source) {
         if (!source.exists() && source.isDirectory()) {
@@ -34,11 +34,7 @@ public class AutocfsMetadataDescriptorFactory implements MetadataDescriptorFacto
         try {
             MagicMatch match = Magic.getMagicMatch(source, false);
             data = match.getMimeType();
-        } catch (MagicParseException e) {
-            e.printStackTrace();
-        } catch (MagicMatchNotFoundException e) {
-            e.printStackTrace();
-        } catch (MagicException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return getDescriptorUncheck("file", source.getPath(), data);

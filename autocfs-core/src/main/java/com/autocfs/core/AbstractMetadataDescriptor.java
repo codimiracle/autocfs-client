@@ -1,4 +1,4 @@
-package com.autocfs.client.datastructs;
+package com.autocfs.core;
 
 /**
  * Created by Codimiracle on 2018/3/23.

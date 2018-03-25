@@ -1,8 +1,4 @@
-package com.autocfs.client;
-
-import com.autocfs.client.datastructs.AutocfsMetadataDescriptor;
-import com.autocfs.client.datastructs.ConventionHandler;
-import com.autocfs.client.datastructs.MetadataDescriptor;
+package com.autocfs.core;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.autocfs.client.datastructs;
+package com.autocfs.core;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

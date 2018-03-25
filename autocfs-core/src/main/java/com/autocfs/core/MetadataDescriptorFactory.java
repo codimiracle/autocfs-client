@@ -1,8 +1,7 @@
-package com.autocfs.client.datastructs;
+package com.autocfs.core;
 
 import java.io.File;
 import java.io.InputStream;
-import java.io.OutputStream;
 
 public interface MetadataDescriptorFactory {
     public MetadataDescriptor getDescriptor(File source);

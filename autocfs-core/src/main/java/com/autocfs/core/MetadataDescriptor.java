@@ -1,4 +1,4 @@
-package com.autocfs.client.datastructs;
+package com.autocfs.core;
 
 public interface MetadataDescriptor {
 

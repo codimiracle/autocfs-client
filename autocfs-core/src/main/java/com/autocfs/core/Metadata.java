@@ -1,4 +1,4 @@
-package com.autocfs.client.datastructs;
+package com.autocfs.core;
 
 import java.io.InputStream;
 import java.nio.charset.Charset;
