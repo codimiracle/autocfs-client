@@ -8,10 +8,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-/**
- * Created by Codimiracle on 2018/3/25.
- */
-
 @RunWith(Suite.class)
 @SuiteClasses({
         AutocfsMetadataTest.class, AutocfsMetadataDescriptorTest.class,
