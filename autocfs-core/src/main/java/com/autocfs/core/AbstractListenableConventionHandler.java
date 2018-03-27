@@ -25,10 +25,25 @@ public abstract class AbstractListenableConventionHandler implements ListenableC
     public void removeConventionHandlerListener(ConventionHandlerListener listener) {
         listeners.remove(listener);
     }
-
+    protected void publishStartedMessage(MetadataDescriptor descriptor) {
+        HandlerMessage message = new HandlerMessage(descriptor);
+        Iterator<ConventionHandlerListener> iterator = listeners.iterator();
+        while (iterator.hasNext()) {
+            ConventionHandlerListener listener = iterator.next();
+            listener.onHandleBegin(message);
+        }
+    }
+    protected void publishFinishedMessage(MetadataDescriptor descriptor, int resultCode) {
+        ResultMessage message = new ResultMessage(descriptor, resultCode);
+        Iterator<ConventionHandlerListener> iterator = listeners.iterator();
+        while (iterator.hasNext()) {
+            ConventionHandlerListener listener = iterator.next();
+            listener.onHandleEnd(message);
+        }
+    }
     protected void publishMessage(MetadataDescriptor descriptor, float progress) {
         Iterator<ConventionHandlerListener> iterator = listeners.iterator();
-        HandlerMessage message = new HandlerMessage(descriptor, progress);
+        ProgressMessage message = new ProgressMessage(descriptor, progress);
         while (iterator.hasNext()) {
             ConventionHandlerListener listener = iterator.next();
             listener.onHandling(message);

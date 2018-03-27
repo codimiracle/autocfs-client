@@ -13,9 +13,11 @@ public class MimeTypeConventionHandler extends AbstractListenableConventionHandl
         Metadata metadata = descriptor.getMetadata();
         String source = metadata.getSourceAsString();
         String mimeType = metadata.getDataAsString();
+        publishStartedMessage(descriptor);
         for (int i = 1; i <= 1000; i++) {
             publishMessage(descriptor, (i / 1000.0f));
         }
+        publishFinishedMessage(descriptor, 0x00);
         System.out.println("archiving...." + source + " to " + mimeType );
     }
 

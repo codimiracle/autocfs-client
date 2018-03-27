@@ -21,8 +21,15 @@ public class MimeTypeConventionHandlerTest {
     public void testAddListener() {
         handler.addConvensionHandlerListener(new MimeTypeConventionHandler.ConventionHandlerListener() {
             @Override
-            public void onHandling(ListenableConventionHandler.HandlerMessage message) {
+            public void onHandling(ListenableConventionHandler.ProgressMessage message) {
                 System.out.println(message.getProgress());
+            }
+            public void onHandleBegin(ListenableConventionHandler.HandlerMessage message) {
+                System.out.println(message.getDescriptor().getMetadata().getSourceAsString() + " handling...");
+            }
+
+            public void onHandleEnd(ListenableConventionHandler.ResultMessage message) {
+                System.out.println(message.getDescriptor().getMetadata().getSourceAsString() + " finish with code:" + message.getResultCode());
             }
         });
         handler.handle(descriptor);
