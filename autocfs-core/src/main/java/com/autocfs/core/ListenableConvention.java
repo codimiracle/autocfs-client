@@ -1,6 +1,6 @@
 package com.autocfs.core;
 
-public interface ListenableConventionHandler extends ConventionHandler {
+public interface ListenableConvention extends Convention {
 
     public class HandlerMessage {
         private MetadataDescriptor descriptor;

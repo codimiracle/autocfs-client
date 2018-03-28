@@ -7,12 +7,12 @@ import java.util.Vector;
  * Created by Codimiracle on 2018/3/27.
  */
 
-public abstract class AbstractListenableConventionHandler implements ListenableConventionHandler {
+public abstract class AbstractListenableConvention implements ListenableConvention {
 
-    private Vector<ListenableConventionHandler.ConventionHandlerListener> listeners;
+    private Vector<ListenableConvention.ConventionHandlerListener> listeners;
 
-    public AbstractListenableConventionHandler() {
-        listeners = new Vector<ListenableConventionHandler.ConventionHandlerListener>();
+    public AbstractListenableConvention() {
+        listeners = new Vector<ListenableConvention.ConventionHandlerListener>();
     }
 
     @Override

@@ -5,11 +5,11 @@ import org.junit.Test;
 
 public class MimeTypeConventionHandlerTest {
     MetadataDescriptor descriptor;
-    MimeTypeConventionHandler handler;
+    MimeTypeConvention handler;
     @Before
     public void setUp() {
         descriptor = new AutocfsMetadataDescriptorFactory().getDescriptor("D:/readme.txt");
-        handler = new MimeTypeConventionHandler();
+        handler = new MimeTypeConvention();
     }
 
     @Test
@@ -19,16 +19,16 @@ public class MimeTypeConventionHandlerTest {
 
     @Test
     public void testAddListener() {
-        handler.addConvensionHandlerListener(new MimeTypeConventionHandler.ConventionHandlerListener() {
+        handler.addConvensionHandlerListener(new MimeTypeConvention.ConventionHandlerListener() {
             @Override
-            public void onHandling(ListenableConventionHandler.ProgressMessage message) {
+            public void onHandling(ListenableConvention.ProgressMessage message) {
                 System.out.println(message.getProgress());
             }
-            public void onHandleBegin(ListenableConventionHandler.HandlerMessage message) {
+            public void onHandleBegin(ListenableConvention.HandlerMessage message) {
                 System.out.println(message.getDescriptor().getMetadata().getSourceAsString() + " handling...");
             }
 
-            public void onHandleEnd(ListenableConventionHandler.ResultMessage message) {
+            public void onHandleEnd(ListenableConvention.ResultMessage message) {
                 System.out.println(message.getDescriptor().getMetadata().getSourceAsString() + " finish with code:" + message.getResultCode());
             }
         });

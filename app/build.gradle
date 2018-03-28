@@ -39,6 +39,6 @@ dependencies {
 
 repositories {
     maven {
-        url 'https://repo.spring.io/libs-milestone'
+        url 'https://repo.spring.com.autocfs.io/libs-milestone'
     }
 }
