@@ -5,11 +5,17 @@ import com.google.common.base.Preconditions;
 
 public class MimeTypeConvention extends AbstractCovention {
 
-
     public MimeTypeConvention(MetadataDescriptor descriptor) {
         super(descriptor);
     }
 
+    private class MimeTypeConventionHandler implements ConventionHandler {
+
+        @Override
+        public void handle(MetadataDescriptor descriptor) {
+
+        }
+    }
     public void handle(MetadataDescriptor descriptor) {
         descriptor = Preconditions.checkNotNull(descriptor);
         if (!descriptor.getMetadataType().equals("file")) {

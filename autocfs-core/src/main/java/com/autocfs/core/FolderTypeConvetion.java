@@ -6,5 +6,4 @@ public class FolderTypeConvetion extends AbstractCovention {
         super(descriptor);
     }
 
-
 }

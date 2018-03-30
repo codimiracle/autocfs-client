@@ -9,7 +9,7 @@ public class MimeTypeConventionHandlerTest {
     @Before
     public void setUp() {
         descriptor = new AutocfsMetadataDescriptorFactory().getDescriptor("D:/readme.txt");
-        handler = new MimeTypeConvention();
+        handler = new MimeTypeConvention(descriptor);
     }
 
     @Test

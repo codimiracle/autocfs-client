@@ -24,13 +24,6 @@ public class AutocfsFragment extends Fragment implements AutocfsContract.View {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v =  inflater.inflate(R.layout.fragment_autocfs,container, false);
-        mButton = v.findViewById(R.id.hello_btn);
-        mButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.sayHello();
-            }
-        });
         return v;
     }
 

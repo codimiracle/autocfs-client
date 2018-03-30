@@ -7,31 +7,25 @@
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:title="Convetion" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="History" />
+
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/navigation_drawer_about">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/share" />
+                android:id="@+id/nav_author"
+                android:icon="@mipmap/ic_codimiracle"
+                android:title="@string/navigation_drawer_author" />
+
             <item
-                android:id="@+id/nav_contract"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/contract" />
+                android:id="@+id/nav_github"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/navigation_drawer_github" />
         </menu>
     </item>
 

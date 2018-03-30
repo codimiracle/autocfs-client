@@ -14,6 +14,4 @@ public class AutocfsApplication extends Application {
         super.onTerminate();
     }
 
-
-
 }
