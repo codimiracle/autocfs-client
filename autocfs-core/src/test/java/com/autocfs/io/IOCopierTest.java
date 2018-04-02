@@ -11,7 +11,7 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 public class IOCopierTest {
-    private BufferedCopier copier;
+    private StreamCopier copier;
     private ByteArrayOutputStream output;
     private ByteArrayInputStream input;
 
@@ -20,7 +20,7 @@ public class IOCopierTest {
     public void setUp() {
         input = new ByteArrayInputStream("Hello World!".getBytes());
         output = new ByteArrayOutputStream(1024);
-        copier = new BufferedCopier(input, output);
+        copier = new StreamCopier(input, output);
     }
 
     @Test

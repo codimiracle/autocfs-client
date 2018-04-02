@@ -22,7 +22,7 @@ public class DynamicCopier implements Copier {
     }
 
     @Override
-    public int transfer() throws IOException {
+    public long transfer() throws IOException {
         byte[] buffer = getBuffer();
         int read = input.read(buffer);
         if (read != -1) {
