@@ -13,6 +13,9 @@ public class FolderType {
         return null;
     }
 
+    protected FolderType(String mediatype, String subtype) {
+        mimeType = new MimeType(mediatype, subtype);
+    }
     @Override
     public int hashCode() {
         return mimeType.hashCode() * 9;
