@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.autocfs.client.R;
@@ -35,6 +36,17 @@ public class FileExplorerFragment extends Fragment implements FileExplorerContra
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_file_explorer, container, false);
         mFileExplorerList = root.findViewById(R.id.file_explorer_list);
+        mFileExplorerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                File file = mFileExplorerAdapter.getItem(position);
+                if (file.isDirectory()) {
+                    mPresenter.changeDirectory(file);
+                } else {
+
+                }
+            }
+        });
         return root;
     }
 
@@ -42,11 +54,11 @@ public class FileExplorerFragment extends Fragment implements FileExplorerContra
     public void showList(List<File> list) {
         mFileExplorerAdapter.setList(list);
         mFileExplorerList.refreshDrawableState();
-
     }
 
     @Override
-    public void scrollToPosition(int position) {
+    public void setPosition(int position) {
+        mFileExplorerList.setSelection(position);
     }
 
     @Override

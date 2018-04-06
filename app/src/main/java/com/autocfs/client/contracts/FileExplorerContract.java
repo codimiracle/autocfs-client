@@ -9,7 +9,7 @@ import java.util.List;
 public interface FileExplorerContract {
     public interface View extends BaseView<Presenter> {
         public void showList(List<File> list);
-        public void scrollToPosition(int position);
+        public void setPosition(int position);
     }
     public interface Presenter extends BasePresenter {
         public void changeDirectory(File directory);
