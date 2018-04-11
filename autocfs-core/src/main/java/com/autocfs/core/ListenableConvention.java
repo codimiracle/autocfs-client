@@ -24,9 +24,9 @@ public interface ListenableConvention extends Convention {
             return progress;
         }
     }
-    public class ResultMessage extends HandlerMessage {
+    public class ResultsMessage extends HandlerMessage {
         private int resultCode;
-        public ResultMessage(MetadataDescriptor descriptor, int resultCode) {
+        public ResultsMessage(MetadataDescriptor descriptor, int resultCode) {
             super(descriptor);
             this.resultCode = resultCode;
         }
@@ -39,7 +39,7 @@ public interface ListenableConvention extends Convention {
         //public boolean onMetadataDescriptorChecking(MetadataDescriptor descriptor);
         public void onHandling(ProgressMessage message);
         public void onHandleBegin(HandlerMessage message);
-        public void onHandleEnd(ResultMessage message);
+        public void onHandleEnd(ResultsMessage message);
     };
     public void addConvensionHandlerListener(ConventionHandlerListener listener);
     public void removeConventionHandlerListener(ConventionHandlerListener listener);

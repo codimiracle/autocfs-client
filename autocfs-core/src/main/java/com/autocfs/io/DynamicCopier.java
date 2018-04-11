@@ -5,6 +5,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class DynamicCopier implements Copier {
+    private long transferred = 0;
+    private int lastTransferred;
     private byte[] buffered;
     private InputStream input;
     private OutputStream output;
@@ -22,13 +24,25 @@ public class DynamicCopier implements Copier {
     }
 
     @Override
-    public long transfer() throws IOException {
+    public long getTransferred() {
+        return transferred;
+    }
+
+    @Override
+    public int getLastTransferred() {
+        return lastTransferred;
+    }
+
+    @Override
+    public Transferable transfer() throws IOException {
         byte[] buffer = getBuffer();
-        int read = input.read(buffer);
-        if (read != -1) {
-            output.write(buffer, 0, read);
+        lastTransferred = input.read(buffer);
+        if (lastTransferred != -1) {
+            transferred += lastTransferred;
+            output.write(buffer, 0, lastTransferred);
             output.flush();
+            return this;
         }
-        return read;
+        return null;
     }
 }

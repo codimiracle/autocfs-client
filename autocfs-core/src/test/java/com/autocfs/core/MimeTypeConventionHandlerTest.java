@@ -28,7 +28,7 @@ public class MimeTypeConventionHandlerTest {
                 System.out.println(message.getDescriptor().getMetadata().getSourceAsString() + " handling...");
             }
 
-            public void onHandleEnd(ListenableConvention.ResultMessage message) {
+            public void onHandleEnd(ListenableConvention.ResultsMessage message) {
                 System.out.println(message.getDescriptor().getMetadata().getSourceAsString() + " finish with code:" + message.getResultCode());
             }
         });

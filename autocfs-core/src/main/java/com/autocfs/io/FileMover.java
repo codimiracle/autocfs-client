@@ -10,6 +10,8 @@ import java.util.Iterator;
 import java.util.Vector;
 
 public class FileMover implements Copier {
+    private long transferred;
+    private int lastTransferred;
     private File destination;
     private File handling = null;
     private Copier copier;
@@ -43,20 +45,31 @@ public class FileMover implements Copier {
     }
 
     @Override
-    public long transfer() throws IOException {
+    public long getTransferred() {
+        return transferred;
+    }
+
+    @Override
+    public int getLastTransferred() {
+        return lastTransferred;
+    }
+
+    @Override
+    public Transferable transfer() throws IOException {
         if (handling == null && iterator.hasNext()) {
             handling = iterator.next();
         }
         if (copier == null) {
             long bytes = move(handling, destination);
             if (bytes != -1) {
-                return bytes;
+                return this;
             }
         }
-        long bytes = copier.transfer();
-        if (bytes == -1) {
+        Transferable transferable = copier.transfer();
+        if (transferable == null) {
             cleanHandling();
+            return null;
         }
-        return bytes;
+        return this;
     }
 }

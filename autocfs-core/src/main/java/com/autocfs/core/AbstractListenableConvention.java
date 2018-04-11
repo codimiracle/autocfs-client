@@ -34,7 +34,7 @@ public abstract class AbstractListenableConvention implements ListenableConventi
         }
     }
     protected void publishFinishedMessage(MetadataDescriptor descriptor, int resultCode) {
-        ResultMessage message = new ResultMessage(descriptor, resultCode);
+        ResultsMessage message = new ResultsMessage(descriptor, resultCode);
         Iterator<ConventionHandlerListener> iterator = listeners.iterator();
         while (iterator.hasNext()) {
             ConventionHandlerListener listener = iterator.next();
